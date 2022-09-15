@@ -17,5 +17,5 @@ using (var response = await client.SendAsync(request))
     var body1 = response.Content.Headers;
     Console.WriteLine(body);
     Console.WriteLine(body1);
-    File.WriteAllText(@"C:\Users\shasw\Desktop\cron.txt", body);
+    File.WriteAllText(@"C:\Users\shasw\Desktop\cron.json", body);
 }
