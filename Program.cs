@@ -1,4 +1,7 @@
-﻿var client = new HttpClient();
+
+using Newtonsoft.Json.Linq;
+using System;
+var client = new HttpClient();
 var request = new HttpRequestMessage
 {
     Method = HttpMethod.Get,
@@ -19,3 +22,16 @@ using (var response = await client.SendAsync(request))
     Console.WriteLine(body1);
     File.WriteAllText(@"C:\Users\shasw\Desktop\cron.txt", body);
 }
+
+
+JObject data = JObject.Parse(File.ReadAllText("C:\Users\shasw\Desktop\cron.json"));
+
+//Console.WriteLine(data.ToString());
+
+var language = data.SelectToken("quoteResponse.result[0].language")?.Value<string>();
+var quoteType = data.SelectToken("quoteResponse.result[0].quoteType")?.Value<string>();
+var TotalCash = data.SelectToken("quoteResponse.result[0].totalCash")?.Value<string>();
+var floatShares = data.SelectToken("quoteResponse.result[0].floatShares")?.Value<string>();
+var preMarketChangePercent = data.SelectToken("quoteResponse.result[0].preMarketChangePercent")?.Value<string>();
+var targetPriceHigh = data.SelectToken("quoteResponse.result[0].targetPriceHigh")?.Value<string>();
+
