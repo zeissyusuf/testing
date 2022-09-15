@@ -4,7 +4,7 @@ var client = new HttpClient();
 var request = new HttpRequestMessage
 {
     Method = HttpMethod.Get,
-    RequestUri = new Uri("https://yh-finance.p.rapidapi.com/market/v2/get-quotes?region=US&symbols=AMD%2CIBM%2CAAPL"),  //from db
+    RequestUri = new Uri("https://yh-finance.p.rapidapi.com/market/v2/get-quotes?region=US&symbols=AMD"),  //from db
     Headers =
     {
         { "X-RapidAPI-Key", "ed8bbc525fmshe7f2ca46e69c3ffp179016jsne9ad147cd3e0" },     //from db
